@@ -2,6 +2,7 @@
 .cph/
 .vscode/
 
+a.out
 *.bin
 SortAge
 VPS
