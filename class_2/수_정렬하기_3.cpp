@@ -1,21 +1,25 @@
-#include <map>
 #include <iostream>
 
 using namespace std;
+
+int number[10001];
+int N;
+int input; 
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
 
-	int N; cin >> N;
-	map<int, int> _map;
+	cin >> N;
 	for (int i = 0; i < N; i++) {
-		int input; cin >> input;
-		auto pair = make_pair(i, input);
-		_map.insert(pair);
+		cin >> input;
+		number[input]++;
 	}
-	for (auto it = _map.begin(); it != _map.end(); it++) {
-		cout << it->second() << '\n';
+	for (int i = 1; i < 10001; i++) {
+		while (number[i]) {
+			cout << i << '\n';
+			number[i]--;
+		}
 	}
 	return 0;
 }
