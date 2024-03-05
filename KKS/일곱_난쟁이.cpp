@@ -3,34 +3,33 @@
 
 using namespace std;
 
-int dwarfs[9];
+int _array[9];
 int totalHeight;
-int n, m;
 int overHeight;
 
 int main(void) {
     for (int i = 0; i < 9; i++) {
-        cin >> dwarfs[i];
-        totalHeight += dwarfs[i];
+        cin >> _array[i];
+        totalHeight += _array[i];
     }
 
     overHeight = totalHeight - 100;
-    sort(dwarfs, dwarfs + 9);
-    bool ans = false;
+    sort(_array, _array + 9);
+    bool isFind = false;
     for (int i = 0; i < 9; i++) {
-        for (int j = i + 1; !ans && j < 9; j++) {
-            if (dwarfs[i] + dwarfs[j] == overHeight) {
-                dwarfs[i] = dwarfs[j] = -1;
-                ans = true;
+        for (int j = i + 1; !isFind && j < 9; j++) {
+            if (_array[i] + _array[j] == overHeight) {
+                _array[i] = _array[j] = -1;
+                isFind = true;
                 break ;
             }
         }
     }
 
-    for (int i = 0; i < 9; i++){
-        if (dwarfs[i] == -1)
-            continue;
-        cout << dwarfs[i] << '\n';
+    for (int i = 0; i < 9; i++) {
+        if (_array[i] == -1)
+            continue ;
+        cout << _array[i] << '\n';
     }
     return 0;
 }
